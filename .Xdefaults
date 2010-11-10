@@ -1,0 +1,35 @@
+URxvt.internalBorder:       0
+URxvt.externalBorder:       0
+URxvt.pointerBlank:         true
+URxvt.scrollBar:            false
+URxvt.saveLines:            10000
+URxvt.scrollTtyOutput:      false
+URxvt.scrollWithBuffer:     false
+URxvt.scrollTtyKeypress:    true
+URxvt.tripleclickwords:     true
+URxvt.perl-lib:             /usr/lib/urxvt/perl
+URxvt.perl-ext-common:      default,matcher
+URxvt.matcher.button:       1
+URxvt.urlLauncher:          firefox
+URxvt.font:                 xft:DejaVu Sans Mono-10
+
+URxvt.background: black
+URxvt.foreground: white
+
+! Tango Color Theme urxvt
+URxvt.color0:  rgb:2e2e/3434/3636
+URxvt.color1:  rgb:cccc/0000/0000
+URxvt.color2:  rgb:4e4e/9a9a/0606
+URxvt.color3:  rgb:c4c4/a0a0/0000
+URxvt.color4:  rgb:3434/6565/a4a4
+URxvt.color5:  rgb:7575/5050/7b7b
+URxvt.color6:  rgb:0606/9820/9a9a
+URxvt.color7:  rgb:d3d3/d7d7/cfcf
+URxvt.color8:  rgb:5555/5757/5353
+URxvt.color9:  rgb:efef/2929/2929
+URxvt.color10: rgb:8a8a/e2e2/3434
+URxvt.color11: rgb:fcfc/e9e9/4f4f
+URxvt.color12: rgb:7272/9f9f/cfcf
+URxvt.color13: rgb:adad/7f7f/a8a8
+URxvt.color14: rgb:3434/e2e2/e2e2
+URxvt.color15: rgb:eeee/eeee/ecec

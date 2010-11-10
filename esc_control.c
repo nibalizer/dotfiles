@@ -39,27 +39,38 @@ void set_default_duty_cycles(void)
 {
 	OCR1A = 0;
 	OCR1B = 0;
+	OCR1C = 0;
+	OCR3A = 0;
 }
 
 void setup_pwms(void)
 {
 	// Timer 1
 	// Set ports to output
-	DDRB = (1 << DDB5) | (1<< DDB6);
+	DDRB = (1 << DDB5) | (1<< DDB6) | (1<<DDB7) | (1<<DDC6);
 
     /* Set initial PWM duties to 0% */
 	OCR1A = 0;
 	OCR1B = 0;
+	OCR1C = 0;
+	OCR3A = 0;
 
-    /* Set OC1[A|B] to low on match, set high at TOP also set part of mode 14. */
-	TCCR1A = (1<<COM1A1) | (1<<COM1B1) | (1<<WGM11);
+    /* Set OC1[A|B|C] to low on match, set high at TOP also set part of mode 14. */
+	TCCR1A = (1<<COM1A1) | (1<<COM1B1) | (1<<COM1C1) | (1<<WGM11);
     /* Prescale factor of 8 and complete setting of PWM mode 14. */
 	TCCR1B = (1<CS11) | (1<<WGM12) | (1<<WGM13);
+    /* Set OC3A to low on match, set high at TOP also set part of mode 14. */
+	TCCR3A = (1<<COM3A1) | (1<<WGM31);
+    /* Prescale factor of 8 and complete setting of PWM mode 14. */
+	TCCR3B = (1<CS31) | (1<<WGM32) | (1<<WGM33);
+
     /* Set initial counter to 0. Interrupts should be off. */
 	TCNT1 = 0;
+	TCNT3 = 0;
 
     /* 16Mhz / 8 / 40000 = 50hz */
 	ICR1 = icr_val;
+	ICR3 = icr_val;
 }
 
 void handle_query_pwm_command(uint8_t port)
@@ -88,6 +99,12 @@ void handle_set_pwm_command(uint8_t port, uint8_t vall, uint8_t valh)
 			break;
 		case 1:
 			OCR1A = val;
+			break;
+		case 2:
+			OCR1C = val;
+			break;
+		case 3:
+			OCR3A = val;
 			break;
 	}
 
@@ -134,6 +151,21 @@ void handle_arm_esc_command(uint8_t port)
             break;
         case 1:
             OCR1B = min_ocr;
+	        _delay_ms(1000);
+            break;
+        case 2:
+            OCR1C = min_ocr;
+	        _delay_ms(1000);
+            break;
+        case 3:
+            OCR3A = min_ocr;
+	        _delay_ms(1000);
+            break;
+        case 4:
+            OCR1A = min_ocr;
+            OCR1B = min_ocr;
+            OCR1C = min_ocr;
+            OCR3A = min_ocr;
 	        _delay_ms(1000);
             break;
     }

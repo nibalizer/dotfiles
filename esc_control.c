@@ -33,16 +33,23 @@ void parse_and_execute_command(const char *buf, uint8_t num);
 
 static const uint16_t icr_val = 40000;
 static const uint16_t min_ocr = 2000;
+static const uint8_t min_ocrl = 0xD0;
+static const uint8_t min_ocrh = 0x07;
 static const uint16_t max_ocr = 4000;
+static const uint8_t max_ocrl = 0xA0;
+static const uint8_t max_ocrh = 0x0F;
 
 void set_default_duty_cycles(void)
 {
 	OCR1AH = 0;
 	OCR1AL = 0;
+
 	OCR1BH = 0;
 	OCR1BL = 0;
+
 	OCR1CH = 0;
 	OCR1CL = 0;
+
 	OCR3AH = 0;
 	OCR3AL = 0;
 }
@@ -66,10 +73,13 @@ void setup_pwms(void)
     /* Set initial PWM duties to 0% */
 	OCR1AH = 0;
 	OCR1AL = 0;
+
 	OCR1BH = 0;
 	OCR1BL = 0;
+
 	OCR1CH = 0;
 	OCR1CL = 0;
+
 	OCR3AH = 0;
 	OCR3AL = 0;
 
@@ -94,6 +104,10 @@ void handle_query_pwm_command(uint8_t port)
 void handle_set_pwm_command(uint8_t port, uint8_t vall, uint8_t valh)
 {
     /* TODO: verify new duty cycle is within valid range. */
+    if( (valh < min_ocrh && vall < min_ocrl) || (valh > max_ocrh && vall > max_ocrl) ){
+	    send_str(PSTR("Invalid PWM value. Must be between 2000 and 4000 (inclusive).\n"));
+        return;
+    }
 
 	usb_serial_putchar('\x04');
 	usb_serial_putchar(port);

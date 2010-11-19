@@ -171,26 +171,26 @@ void handle_arm_esc_command(uint8_t port)
     {
         case 0:
             OCR1A = min_ocr;
-	        _delay_ms(1000);
+	        _delay_ms(10000);
             break;
         case 1:
             OCR1B = min_ocr;
-	        _delay_ms(1000);
+	        _delay_ms(10000);
             break;
         case 2:
             OCR1C = min_ocr;
-	        _delay_ms(1000);
+	        _delay_ms(10000);
             break;
         case 3:
             OCR3A = min_ocr;
-	        _delay_ms(1000);
+	        _delay_ms(10000);
             break;
         case 4:
             OCR1A = min_ocr;
             OCR1B = min_ocr;
             OCR1C = min_ocr;
             OCR3A = min_ocr;
-	        _delay_ms(1000);
+	        _delay_ms(10000);
             break;
     }
 }

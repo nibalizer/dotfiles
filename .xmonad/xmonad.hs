@@ -6,6 +6,8 @@
 --
 -- Normally, you'd only override those defaults you care about.
 --
+-- the top of your config
+{-# LANGUAGE NoMonomorphismRestriction #-}
 
 import XMonad
 import Data.Monoid
@@ -17,9 +19,28 @@ import System.Exit
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
+-- imports from xmonad.contrib
+-- http://xmonad.org/xmonad-docs/xmonad-contrib/
 import XMonad.Actions.FindEmptyWorkspace
+import XMonad.Actions.GridSelect
+
 
 -- Where I Begin to blow it up
+-- gridselect things
+--
+gsconfig1 = defaultGSConfig { gs_cellheight = 30, gs_cellwidth = 100 }
+gsconfig2 colorizer = (buildDefaultGSConfig colorizer) { gs_cellheight = 60, gs_cellwidth = 200 }
+
+-- | A green monochrome colorizer based on window class
+greenColorizer = colorRangeFromClassName
+                      black            -- lowest inactive bg
+                      (0x70,0xFF,0x70) -- highest inactive bg
+                      black            -- active bg
+                      white            -- inactive fg
+                      white            -- active fg
+   where black = minBound
+         white = maxBound
+
 
 --myBar = "xmobar"
 
@@ -94,7 +115,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm,               xK_b     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
+    , ((modm,               xK_v     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_d     ), spawn "gmrun")
@@ -150,6 +171,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,                xK_m    ), viewEmptyWorkspace)
     -- Take a window to an enmpty workspace
     , ((modm .|. shiftMask,  xK_m    ), tagToEmptyWorkspace)
+    -- Open grid select workspaces
+    --, ((modm,                xK_z), goToSelected defaultGSConfig)
+    , ((modm,               xK_z), goToSelected  $ gsconfig2 greenColorizer)
+    -- Open grid select applications
+    , ((modm .|. shiftMask,  xK_z), spawnSelected defaultGSConfig ["vlc","firefox","rxvt-unicode","gnome-terminal","gimp","inkscape"])
+
 
 
     -- Toggle the status bar gap

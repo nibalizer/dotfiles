@@ -32,9 +32,9 @@
      objecttolerance="10"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="462.62841"
-     inkscape:cy="263.64794"
+     inkscape:zoom="2.8"
+     inkscape:cx="299.51465"
+     inkscape:cy="259.63871"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      width="1024px"
@@ -3660,5 +3660,43 @@
          x="550"
          sodipodi:role="line"
          id="tspan4615">wspace</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:89.99999762%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TlwgTypewriter"
+       x="130"
+       y="370"
+       id="text10600-6"
+       sodipodi:linespacing="89.999998%"><tspan
+         sodipodi:role="line"
+         x="130"
+         y="370"
+         id="tspan10606-8">grid</tspan><tspan
+         sodipodi:role="line"
+         x="130"
+         y="378.10001"
+         id="tspan4648">select</tspan><tspan
+         sodipodi:role="line"
+         x="130"
+         y="386.20001"
+         id="tspan4650">apps</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:89.99999762%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TlwgTypewriter"
+       x="130"
+       y="398"
+       id="text10600-6-0"
+       sodipodi:linespacing="89.999998%"><tspan
+         sodipodi:role="line"
+         x="130"
+         y="398"
+         id="tspan10606-8-1">grid</tspan><tspan
+         sodipodi:role="line"
+         x="130"
+         y="406.10001"
+         id="tspan4648-9">select</tspan><tspan
+         sodipodi:role="line"
+         x="130"
+         y="414.20001"
+         id="tspan4650-1">wspaces</tspan></text>
   </g>
 </svg>

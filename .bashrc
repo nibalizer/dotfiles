@@ -32,4 +32,5 @@ alias goodnight='. $SCRIPTS/sleep.sh'
 alias rtfm='man'
 
 alias ls='ls --color=auto'
+
 PS1='[\u@\h \W]\$ '

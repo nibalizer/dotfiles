@@ -17,6 +17,8 @@ import System.Exit
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
+import XMonad.Actions.FindEmptyWorkspace
+
 -- Where I Begin to blow it up
 
 --myBar = "xmobar"
@@ -33,7 +35,7 @@ import qualified Data.Map        as M
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "urxvt"
+myTerminal      = "rxvt-unicode"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -74,7 +76,7 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["1","2","3","4","5","6","7","8","9","0"]
+myWorkspaces    = ["1","2","3","4","5","6","7","8","9","0", "f", "`"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -142,6 +144,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Deincrement the number of windows in the master area
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
+    -- Go to an empty workspace
+    , ((modm,                xK_m    ), viewEmptyWorkspace)
+    -- Take a window to an enmpty workspace
+    , ((modm .|. shiftMask,  xK_m    ), tagToEmptyWorkspace)
+
 
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
@@ -162,11 +169,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     ++
 
     --
-    -- mod-[1..9], Switch to workspace N
-    -- mod-shift-[1..9], Move client to workspace N
+    -- mod-[0..9], Switch to workspace N
+    -- mod-shift-[0..9], Move client to workspace N
     --
     [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+        | (i, k) <- zip (XMonad.workspaces conf) ([xK_0 .. xK_9] 
+	++ [ xK_f ] ++ [ xK_grave ] )
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
 

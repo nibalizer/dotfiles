@@ -1,0 +1,155 @@
+#Gmail stuff
+#set imap_user="hunter.haugen@gmail.com"
+set imap_user="nibz"
+#set imap_pass="password"
+auto_view text/html
+
+
+#set smtp_url="smtp://krum.spencer@smtp.gmail.com:587/"
+set smtp_url="smtp://mailhost.cecs.pdx.edu:587/"
+
+#this doesn't seem to be needed anymore since i compiled my own mutt
+#set ssl_min_dh_prime_bits=512
+
+#set smtp_pass="password"
+set from="nibz@cat.pdx.edu"
+set realname="Spencer O. Krum"
+
+#set folder="imaps://imap.gmail.com:993"
+set folder="imaps://mailhost.cecs.pdx.edu:993"
+set spoolfile="+INBOX"
+#set postponed="+[Gmail]/Drafts"
+#set record="+[Gmail]/Sent Mail"
+
+# Cache message headers for quick retrieval
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+
+set move=no
+
+# Sort like gmail sorts it
+set sort=threads
+set strict_threads=yes
+unset collapse_unread
+set sort_aux=last-date-received
+# Automatically poll subscribed mailboxes for new mail
+set imap_check_subscribed
+# Display download progress every 5K
+set net_inc=5
+
+# uber-mutt stuff
+set sidebar_width=22
+set sidebar_visible=no
+set sidebar_delim='|'
+set sidebar_sort=yes
+color sidebar_new color148 default
+bind index \CP sidebar-prev
+bind index \CN sidebar-next
+bind index \CO sidebar-open
+bind pager \CP sidebar-prev
+bind pager \CN sidebar-next
+bind pager \CO sidebar-open
+macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+bind index B bounce-message
+
+mailboxes =linux
+
+# Ignore gmail stuff, just in case
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+
+# Pretty it up
+# ----
+# default list of header fields to weed out when displaying mail
+# ignore them all and then unignore what you want to see
+color normal default default
+color header color148 default '^(Cc|Date|To|From|Subject|X-Tts):'
+color hdrdefault cyan default
+
+color index white default ~N
+color index brightwhite default ~O
+color index magenta default ~F
+color index brightblack default ~D
+
+color tree magenta default
+color quoted magenta default
+color quoted1 white default
+color quoted2 brightred default
+color quoted3 brightmagenta default
+
+color body cyan default "((ftp|http|https)://|news:)[^ >)\"\t]+"
+color body magenta default "[-a-z_0-9.+]+@[-a-z_0-9.]+\.[a-z]{2,3}"
+color error color88 default
+color indicator black color148
+color signature brightblack default
+color status color148 black
+color tilde blue default
+
+ignore *
+unignore Date: From: User-Agent: X-Mailer X-Operating-System To: \
+         Cc: Reply-To: Subject: Mail-Followup-To:
+hdr_order Date: From: User-Agent: X-Mailer X-Operating-System To: \
+        Cc: Reply-To: Subject: Mail-Followup-To:
+
+#======================================================#
+# which editor do you want to use? 
+# vim of course!
+set editor="vim -c 'set tw=70 et spell' '+/^$' " 
+set edit_headers=yes      # See the headers when editing
+
+#======================================================#
+# Aliases
+
+#set alias_file = ~/mail/mutt_aliases # In their own file
+#source ~/mail/mutt_aliases           # Source them
+#set sort_alias=alias                 # Sort alphabetically
+
+#======================================================#
+# Colours: defaults are a little bleak so experiment!
+
+source ~/.mutt/mutt_colors            # In their own file 
+
+# Key bindings
+bind pager h display-toggle-weed
+
+# List stuff
+
+# Macros
+macro index c   "<change-folder>?<toggle-mailboxes>" "open a different folder"
+macro pager c   "<change-folder>?<toggle-mailboxes>" "open a different folder"
+macro index \ec "T.*\n;WN;WO^T.*\n"                  "catch up"
+macro generic ,sm ":source $HOME/.muttrc\r"          "Resource .muttrc without restart"
+
+
+#
+# Configure header displays.
+#
+
+# Ignore all headers
+ignore *
+
+# Then un-ignore the ones I want to see
+unignore From:
+unignore To:
+unignore Reply-To:
+unignore Mail-Followup-To:
+unignore Subject:
+unignore Date:
+unignore Organization:
+unignore Newsgroups:
+unignore X-TTS:
+unignore CC:
+unignore BCC:
+unignore Message-ID:
+unignore X-Mailer:
+unignore User-Agent:
+unignore X-Junked-Because:
+unignore X-SpamProbe:
+unignore X-Virus-hagbard:
+
+# Now order the visable header lines
+hdr_order From: Subject: To: CC: BCC: Reply-To: X-TTS: Mail-Followup-To: Date: Organization: User-Agent: X-Mailer:
+

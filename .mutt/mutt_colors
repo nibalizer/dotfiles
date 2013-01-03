@@ -1,0 +1,17 @@
+#---- Mutt Colors for Black Background -------
+color   hdrdefault   blue              black
+color   quoted       blue              black
+color   signature    blue              black
+color   attachment   green               black
+color   message      brightgreen         black
+color   error        brightgreen         black
+color   indicator    black             green
+color   status       brightgreen       blue
+color   tree         white             black
+color   normal       white             black
+color   markers      green               black
+color   search       white             black
+color   tilde        brightmagenta     black
+color   index        blue              black ~F
+color   index        green               black "~N|~O"
+

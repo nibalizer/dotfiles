@@ -1,0 +1,39 @@
+#!/bin/bash
+#http://uselessuseofcat.com/?p=74
+
+#decreases sensetifitiy
+synclient FingerHigh=50
+
+
+#tap to click
+synclient TapButton1=1
+#two is right click
+synclient TapButton2=3
+#three is middle click
+synclient TapButton3=2
+#don't want to tap and drag, at least not yet
+synclient TapAndDragGesture=0
+
+
+#corner buttons off for now
+synclient RTCornerButton=0
+synclient RBCornerButton=0
+synclient LTCornerButton=0
+synclient LBCornerButton=0
+
+#palm detection... duunnof if need
+synclient PalmDetect=1
+
+
+
+
+# turn on two finger swipe to scroll
+synclient VertTwoFingerScroll=1
+synclient HorizTwoFingerScroll=1
+
+# lion style scrolling
+#note this dosent actually work
+# xinput set-button-map <device name> 1 2 3 5 4
+# http://who-t.blogspot.com/2011/09/natural-scrolling-in-synaptics-driver.html
+# dude seems to know whats up
+#synclient EnableReverseScrollingDirection=1

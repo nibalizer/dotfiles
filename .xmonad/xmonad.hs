@@ -13,16 +13,32 @@ import XMonad
 import Data.Monoid
 import XMonad.Hooks.ManageDocks
 
-import XMonad.Hooks.ManageDocks
 import System.Exit
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
+import XMonad.Util.Run(spawnPipe)
+import XMonad.Util.EZConfig(additionalKeys)
+import System.IO
+
+
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.SetWMName
+
+import XMonad.Layout.Fullscreen
+import XMonad.Layout.Circle
+-- import XMonad.Layout.NoBorders
+import XMonad.Layout.NoBorders (noBorders, smartBorders)
+import XMonad.Layout.Spiral
+import XMonad.Layout.Tabbed
+
 -- imports from xmonad.contrib
 -- http://xmonad.org/xmonad-docs/xmonad-contrib/
 import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Actions.GridSelect
+import XMonad.Actions.NoBorders
 
 
 -- Where I Begin to blow it up
@@ -72,6 +88,13 @@ myBorderWidth   = 1
 -- "windows key" is usually mod4Mask.
 --
 myModMask       = mod4Mask
+
+
+-- Color of current window title in xmobar.
+xmobarTitleColor = "#FFB6B0"
+
+-- Color of current workspace in xmobar.
+xmobarCurrentWorkspaceColor = "#CEFFAC"
 
 -- The mask for the numlock key. Numlock status is "masked" from the
 -- current modifier status, so the keybindings will work with numlock on or
@@ -156,6 +179,17 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Shrink the master area
     , ((modm,               xK_h     ), sendMessage Shrink)
 
+    -- Shrink the master area
+    , ((modm,               xK_h     ), sendMessage Shrink)
+
+    -- Toggle the border of the currently focused window
+
+    , ((modm .|. shiftMask, xK_h     ), withFocused toggleBorder ) 
+
+    -- Toggle the xmobar of the currently focused window
+
+    , ((modm .|. shiftMask, xK_k     ), sendMessage ToggleStruts ) 
+
     -- Expand the master area
     , ((modm,               xK_i     ), sendMessage Expand)
 
@@ -175,7 +209,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --, ((modm,                xK_z), goToSelected defaultGSConfig)
     , ((modm,               xK_z), goToSelected  $ gsconfig2 greenColorizer)
     -- Open grid select applications
-    , ((modm .|. shiftMask,  xK_z), spawnSelected defaultGSConfig ["vlc","firefox","rxvt-unicode","gnome-terminal","gimp","inkscape"])
+    , ((modm .|. shiftMask,  xK_z), spawnSelected defaultGSConfig ["vlc","firefox","rxvt-unicode","gnome-terminal","gimp","inkscape","firefox-trunk"])
 
 
 
@@ -246,7 +280,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts $ tiled ||| Mirror tiled ||| Full
+myLayout = avoidStruts $ tiled ||| Mirror tiled ||| Full ||| Circle
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -294,7 +328,8 @@ myManageHook =
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = mempty
+myEventHook = mempty <+> docksEventHook
+
 
 ------------------------------------------------------------------------
 -- Status bars and logging
@@ -302,7 +337,7 @@ myEventHook = mempty
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
-myLogHook = return ()
+-- myLogHook = return ()
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -319,7 +354,16 @@ myStartupHook = return ()
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = xmonad defaults
+main = do
+  xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobar.hs"
+  xmonad $ defaults {
+      logHook = dynamicLogWithPP $ xmobarPP {
+            ppOutput = hPutStrLn xmproc
+          , ppTitle = xmobarColor xmobarTitleColor "" . shorten 100
+          , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor ""
+          , ppSep = " "}
+      , manageHook = manageDocks <+> myManageHook
+  }
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
@@ -346,7 +390,6 @@ defaults = defaultConfig {
         layoutHook         = myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
-        logHook            = myLogHook,
         startupHook        = myStartupHook
 
     }

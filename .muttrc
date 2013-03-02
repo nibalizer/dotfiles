@@ -1,11 +1,12 @@
 #Gmail stuff
 #set imap_user="hunter.haugen@gmail.com"
+#set imap_user="krum.spencer@gmail.com"
 set imap_user="nibz"
 #set imap_pass="password"
 auto_view text/html
 
 
-#set smtp_url="smtp://krum.spencer@smtp.gmail.com:587/"
+#set smtp_url="smtp://hunter.haugen@smtp.gmail.com:587/"
 set smtp_url="smtp://mailhost.cecs.pdx.edu:587/"
 
 #this doesn't seem to be needed anymore since i compiled my own mutt
@@ -43,7 +44,6 @@ set sidebar_width=22
 set sidebar_visible=no
 set sidebar_delim='|'
 set sidebar_sort=yes
-color sidebar_new color148 default
 bind index \CP sidebar-prev
 bind index \CN sidebar-next
 bind index \CO sidebar-open
@@ -65,28 +65,28 @@ ignore "DKIM-Signature:"
 # ----
 # default list of header fields to weed out when displaying mail
 # ignore them all and then unignore what you want to see
-color normal default default
-color header color148 default '^(Cc|Date|To|From|Subject|X-Tts):'
-color hdrdefault cyan default
+#color normal default default
+#color header color148 default '^(Cc|Date|To|From|Subject|X-Tts):'
+#color hdrdefault cyan default
 
-color index white default ~N
-color index brightwhite default ~O
-color index magenta default ~F
-color index brightblack default ~D
+#color index white default ~N
+#color index brightwhite default ~O
+#color index magenta default ~F
+#color index brightblack default ~D
 
-color tree magenta default
-color quoted magenta default
-color quoted1 white default
-color quoted2 brightred default
-color quoted3 brightmagenta default
+#color tree magenta default
+#color quoted magenta default
+#color quoted1 white default
+#color quoted2 brightred default
+#color quoted3 brightmagenta default
 
-color body cyan default "((ftp|http|https)://|news:)[^ >)\"\t]+"
-color body magenta default "[-a-z_0-9.+]+@[-a-z_0-9.]+\.[a-z]{2,3}"
-color error color88 default
-color indicator black color148
-color signature brightblack default
-color status color148 black
-color tilde blue default
+#color body cyan default "((ftp|http|https)://|news:)[^ >)\"\t]+"
+#color body magenta default "[-a-z_0-9.+]+@[-a-z_0-9.]+\.[a-z]{2,3}"
+#color error color88 default
+#color indicator black color148
+#color signature brightblack default
+#color status color148 black
+#color tilde blue default
 
 ignore *
 unignore Date: From: User-Agent: X-Mailer X-Operating-System To: \
@@ -111,6 +111,7 @@ set edit_headers=yes      # See the headers when editing
 # Colours: defaults are a little bleak so experiment!
 
 source ~/.mutt/mutt_colors            # In their own file 
+source ~/.mutt/crypto                 # gpg magicks
 
 # Key bindings
 bind pager h display-toggle-weed
@@ -152,4 +153,4 @@ unignore X-Virus-hagbard:
 
 # Now order the visable header lines
 hdr_order From: Subject: To: CC: BCC: Reply-To: X-TTS: Mail-Followup-To: Date: Organization: User-Agent: X-Mailer:
-
+macro index M "T.*\n;WN" "Mark all messages as read"

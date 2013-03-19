@@ -41,9 +41,9 @@
      height="640px"
      showgrid="true"
      inkscape:window-width="1364"
-     inkscape:window-height="766"
+     inkscape:window-height="749"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="17"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:window-maximized="0">
@@ -3698,5 +3698,67 @@
          x="130"
          y="414.20001"
          id="tspan4650-1">wspaces</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:89.99999762%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TlwgTypewriter"
+       x="200"
+       y="370"
+       id="text10600-6-6"
+       sodipodi:linespacing="89.999998%"><tspan
+         sodipodi:role="line"
+         x="200"
+         y="370"
+         id="tspan4650-5">resync</tspan><tspan
+         sodipodi:role="line"
+         x="200"
+         y="378.10001"
+         id="tspan3699">env</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:89.99999762%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TlwgTypewriter"
+       x="200"
+       y="400"
+       id="text10600-6-0-8"
+       sodipodi:linespacing="89.999998%"><tspan
+         sodipodi:role="line"
+         x="200"
+         y="400"
+         id="tspan4650-1-5">show</tspan><tspan
+         sodipodi:role="line"
+         x="200"
+         y="408.10001"
+         id="tspan3758">batt</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:89.99999762%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TlwgTypewriter"
+       x="480"
+       y="370"
+       id="text10600-6-0-5"
+       sodipodi:linespacing="89.999998%"><tspan
+         sodipodi:role="line"
+         x="480"
+         y="370"
+         id="tspan4650-1-9">hide</tspan><tspan
+         sodipodi:role="line"
+         x="480"
+         y="378.10001"
+         id="tspan3764">xmobar</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:89.99999762%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:TlwgTypewriter"
+       x="470"
+       y="300"
+       id="text10600-6-0-9"
+       sodipodi:linespacing="89.999998%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="470"
+         y="300"
+         id="tspan4650-1-1">hide</tspan><tspan
+         sodipodi:role="line"
+         x="470"
+         y="308.10001"
+         id="tspan3770">border</tspan></text>
   </g>
 </svg>

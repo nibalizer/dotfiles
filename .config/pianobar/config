@@ -1,0 +1,5 @@
+tls_fingerprint = 2D0AFDAFA16F4B5C0A43F3CB1D4752F9535507C0
+event_command = /home/nibz/local/bin/pianobar-notify
+user = nibalizer@gmail.com
+#password = yourpassword
+#audio_format = mp3-hifi

@@ -121,7 +121,7 @@ xmobarCurrentWorkspaceColor = "#CEFFAC"
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
 -- make a double row of workspaces a la irssi
-myWorkspaces    = ["`","1","2","3","4","5","6","7","8","9","0"
+myWorkspaces    = ["0","1","2","3","4","5","6","7","8","9","`"
                       ,"q","w","f","p","g","j","l","u","y",";"]
 
 -- Border colors for unfocused and focused windows, respectively.
@@ -179,6 +179,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Shrink the master area
     , ((modm,               xK_h     ), sendMessage Shrink)
 
+    -- run setup env script
+    , ((modm .|. shiftMask, xK_x     ), spawn "/home/nibz/local/bin/setup-env.sh"    )
+
+    -- get battery info
+    , ((modm,               xK_x     ), spawn "/home/nibz/local/bin/batt.sh" )
+
     -- Shrink the master area
     , ((modm,               xK_h     ), sendMessage Shrink)
 
@@ -209,7 +215,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --, ((modm,                xK_z), goToSelected defaultGSConfig)
     , ((modm,               xK_z), goToSelected  $ gsconfig2 greenColorizer)
     -- Open grid select applications
-    , ((modm .|. shiftMask,  xK_z), spawnSelected defaultGSConfig ["vlc","firefox","rxvt-unicode","gnome-terminal","gimp","inkscape","firefox-trunk"])
+    , ((modm .|. shiftMask,  xK_z), spawnSelected defaultGSConfig ["firefox-trunk","firefox","rxvt-unicode","gnome-terminal","okular","gimp","inkscape","vlc","netflix-desktop", "chromium-browser"])
 
 
 
@@ -226,6 +232,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_a     ), spawn "xmonad --recompile; xmonad --restart")
     --printscreen
     , ((0                 , xK_Print ), spawn "scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Images/caps/'") 
+    , ((modm              , xK_o ), spawn "scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Images/caps/'") 
     , ((shiftMask                 , xK_Print ), spawn "setxkbmap us")
 
     ]

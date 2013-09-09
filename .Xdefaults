@@ -12,7 +12,8 @@ URxvt.perl-ext-common:      default,matcher
 URxvt.matcher.button:       1
 !URxvt.urlLauncher:          firefox-trunk
 URxvt.urlLauncher:          firefox
-URxvt.font:                 xft:DejaVu Sans Mono-9
+!URxvt.font:                 xft:DejaVu Sans Mono-9
+URxvt.font:                 xft:DejaVu Sans Mono-12
 !Rxvt.font:                 xft:DejaVu Sans Mono-8
 !URxvt.font:                 xft:DejaVu Sans Mono-20
 !URxvt.font:                 xft:DejaVu Sans Mono-6
@@ -52,10 +53,10 @@ URxvt.foreground: grey
 !urxvt*boldFont: xft:Terminus
 
 ! Fake transparency
-URxvt.inheritPixmap: true
-URxvt.transparent: true
-URxvt.shading: 12
-URxvt.tintColor: white
+!URxvt.inheritPixmap: true
+!URxvt.transparent: false
+!URxvt.shading: 12
+!URxvt.tintColor: white
 
 !Color scheme: from mythmon via chancez
 URxvt*background: #2B2B2B

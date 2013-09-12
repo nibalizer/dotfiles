@@ -199,6 +199,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Expand the master area
     , ((modm,               xK_i     ), sendMessage Expand)
 
+    -- Toggle the xmobar of the currently focused window
+    
+    , ((modm .|. shiftMask, xK_i     ), spawn "gnome-screensaver-command -l" ) 
+
     -- Push window back into tiling
     , ((modm,               xK_d     ), withFocused $ windows . W.sink)
 

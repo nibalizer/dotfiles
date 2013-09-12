@@ -1,0 +1,54 @@
+[user]
+  name = Spencer Krum
+  email = nibz@cat.pdx.edu
+[core]
+  editor = vim
+[alias]
+  st        = status
+  chp       = cherry-pick
+  su        = submodule
+  sub       = submodule
+  sst       = submodule status
+  sup       = "!f() { git submodule sync; git submodule update; }; f"
+  co        = checkout
+  b         = branch
+  ba        = branch --all
+  ci        = commit
+  unstage   = reset HEAD --
+  last      = log -1 HEAD
+  pg        = log --pretty=format:'%h : %s' --graph
+  sgrep     = "!f() { git submodule foreach \"git grep '$1'; true\" | grep -B 1 \"$1\"; }; f"
+
+[color]
+  ui = true
+
+
+[alias]
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[push]
+  default = tracking
+
+
+[gitreview]
+  username = krum-spencer

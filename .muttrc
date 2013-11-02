@@ -1,13 +1,23 @@
+# Mutt config
+# Needs other files from mutt/
+# http://github.com/nibalizer/dotfiles
+#
+# Configure options
+#
+#  $ ./configure --prefix=/home/nibz/local/ --enable-imap --enable-smtp --enable-pop --enable-debug --enable-nfs-fix --enable-hcache --enable-exact-address --with-regex --with-ssl --with-sasl
+
+
 #Gmail stuff
 #set imap_user="hunter.haugen@gmail.com"
 #set imap_user="krum.spencer@gmail.com"
-set imap_user="nibz"
+set imap_user="nibz@cat.pdx.edu"
+#set imap_user="nibz"
 #set imap_pass="password"
 auto_view text/html
 
 
 #set smtp_url="smtp://hunter.haugen@smtp.gmail.com:587/"
-set smtp_url="smtp://mailhost.cecs.pdx.edu:587/"
+set smtp_url="smtp://nibz@mailhost.cecs.pdx.edu:587/"
 
 #this doesn't seem to be needed anymore since i compiled my own mutt
 #set ssl_min_dh_prime_bits=512
@@ -16,8 +26,8 @@ set smtp_url="smtp://mailhost.cecs.pdx.edu:587/"
 set from="nibz@cat.pdx.edu"
 set realname="Spencer O. Krum"
 
-#set folder="imaps://imap.gmail.com:993"
-set folder="imaps://mailhost.cecs.pdx.edu:993"
+set folder="imaps://imap.gmail.com:993"
+#set folder="imaps://mailhost.cecs.pdx.edu:993"
 set spoolfile="+INBOX"
 #set postponed="+[Gmail]/Drafts"
 #set record="+[Gmail]/Sent Mail"

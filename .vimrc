@@ -27,6 +27,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'ervandew/supertab'
+Bundle 'rodjek/vim-puppet'
 
 Bundle 'guns/vim-clojure-static'
 Bundle 'vim-scripts/verilog_systemverilog.vim'

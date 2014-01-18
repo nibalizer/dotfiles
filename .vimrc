@@ -1,4 +1,46 @@
 "#http://mislav.uniqpath.com/2011/12/vim-revisited/
+" Setting up Vundle - the vim plugin bundler
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+    echo "Installing Vundle.."
+    echo ""
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+    let iCanHazVundle=0
+endif
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+Bundle 'vim-scripts/paredit.vim'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-classpath'
+Bundle 'tpope/vim-fugitive'
+Bundle 'mhinz/vim-signify'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'ervandew/supertab'
+
+Bundle 'guns/vim-clojure-static'
+Bundle 'vim-scripts/verilog_systemverilog.vim'
+
+Bundle 'bling/vim-airline'
+Bundle 'flazz/vim-colorschemes'
+
+if iCanHazVundle == 0
+    echo "Installing Bundles, please ignore key map error messages"
+    echo ""
+    :BundleInstall
+endif
+" Setting up Vundle - the vim plugin bundler end
+
 
 set nocompatible                " choose no compatibility with legacy vi
 syntax enable

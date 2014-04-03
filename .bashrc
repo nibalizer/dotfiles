@@ -75,7 +75,7 @@ fi
 if [ -d $HOME/.virtualenvs ]; then
   VENV_ROOT=$HOME/.virtualenvs
   venv-list () {
-    ls -l $VENT_ROOT | awk '{ print $9 "            " $6 " " $7 " "$8 } ' | column -
+    ls -l $VENV_ROOT | awk '{ print $9 "            " $6 " " $7 " "$8 } ' | column -t
   }
 fi
 

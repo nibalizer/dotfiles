@@ -7,7 +7,7 @@
 # Use Vim
 export EDITOR=`which vim`
 
-# All the cool kids are using POP3
+# What, you don't have your own mail spool?
 MAIL=/var/spool/mail/nibz && export MAIL
 
 # Sometimes we need to know where the awesome is
@@ -75,21 +75,19 @@ fi
 if [ -d $HOME/.virtualenvs ]; then
   VENV_ROOT=$HOME/.virtualenvs
   venv-list () {
-    ls -l $VENV_ROOT | awk '{ print $9 "            " $6 " " $7 " "$8 } ' | column -t
+    ls -l $VENV_ROOT | awk '{ print $9 " " $6 " " $7 " "$8 } ' | column -t
   }
 fi
 
 # NODE
 # It kills me to need to put this here
 # There doesn't seem to be a rvm/virtualenv/perlbrew for node
-# So we install it from source into ~/local and hope for the best
-
-
-
+# So we install it from binary tarball into ~/local and hope for the best
 
 # Everything done often should be short and fast
 
 alias ta='tmux attach'
+alias sdr='screen -dr'
 
 
 #feel good aliases 

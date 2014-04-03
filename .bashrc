@@ -88,7 +88,7 @@ fi
 
 alias ta='tmux attach'
 alias sdr='screen -dr'
-alias ls='ls -F'
+alias ls='ls -F --color=auto'
 alias v='vagrant'
 alias l='ls -F'
 alias la='ls -Fa'
@@ -138,7 +138,6 @@ alias pgc='ping google.com'
 alias goodnight='. $SCRIPTS/sleep.sh'
 alias rtfm='man'
 
-alias ls='ls --color=auto'
 
 PS1='[\u@\h \W]\$ '
 

@@ -88,6 +88,31 @@ fi
 
 alias ta='tmux attach'
 alias sdr='screen -dr'
+alias ls='ls -F'
+alias v='vagrant'
+alias l='ls -F'
+alias la='ls -Fa'
+alias ll='ls -Fl'
+alias x='exit'
+
+
+# Git aliases
+
+alias gs='git status'
+alias gl='git log'
+alias go='git checkout'
+alias gob='git checkout -b'
+alias gb='git branch'
+alias ga='git add'
+alias gd='git diff'
+alias gc='git commit'
+alias gca='git commit --amend'
+alias gcm='git commit -m'
+alias gg='git grep'
+alias gr='git remote'
+alias gp='git pull'
+
+
 
 
 #feel good aliases 

@@ -69,6 +69,21 @@ if [ -d $HOME/.globalpip ]; then
   VIRTUAL_ENV_DISABLE_PROMPT=yes source $HOME/.globalpip/bin/activate 
 fi
 
+# Experimental support for globally available virtualenvs
+# Basically implement rvm on top of virtualenv
+
+if [ -d $HOME/.virtualenvs ]; then
+  VENV_ROOT=$HOME/.virtualenvs
+  venv-list () {
+    ls -l $VENT_ROOT | awk '{ print $9 "            " $6 " " $7 " "$8 } ' | column -
+  }
+fi
+
+# NODE
+# It kills me to need to put this here
+# There doesn't seem to be a rvm/virtualenv/perlbrew for node
+# So we install it from source into ~/local and hope for the best
+
 
 
 

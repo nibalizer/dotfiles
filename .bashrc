@@ -63,7 +63,8 @@ alias ta='tmux attach'
 #kept here becuase the past is awesome
 alias xkcd='konqueror &'
 alias kb='. /home/nibz/Documents/Scripts/kb.sh'
-alias win='. /home/nibz/Documents/Scripts/win.sh'
+#alias win='. /home/nibz/Documents/Scripts/win.sh'
+alias win=$SCRIPTS/win.sh
 alias wifi='. /home/nibz/Documents/Scripts/newwireless_script.sh'
 alias bashrc='vim /home/nibz/.bashrc && source /home/nibz/.bashrc'
 alias xorg='. /home/nibz/Documents/Scripts/xorg.sh'

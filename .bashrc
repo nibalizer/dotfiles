@@ -54,7 +54,7 @@ fi
 # Install perlbrew with
 # \curl -L http://install.perlbrew.pl | bash
 
-if [ -d $HOME/perl5 ]; then
+if [ -d $HOME/perl5/etc/bashrc ]; then
   source ~/perl5/perlbrew/etc/bashrc
 fi
 

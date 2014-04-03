@@ -114,6 +114,14 @@ alias gp='git pull'
 alias gpom='git push origin master'
 
 
+# Going beyond aliases
+
+wodim () {
+  /usr/bin/wodim -v $1
+  eject -T
+}
+
+[ -f /usr/bin/vim ] && alias vi='vim'
 
 
 #feel good aliases 

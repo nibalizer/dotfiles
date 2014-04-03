@@ -51,6 +51,25 @@ fi
 
 # PERL
 # Manage perl with perlbrew
+# Install perlbrew with
+# \curl -L http://install.perlbrew.pl | bash
+
+if [ -d $HOME/perl5 ]; then
+  source ~/perl5/perlbrew/etc/bashrc
+fi
+
+# PYTHON
+# Manage python with virtualenv
+# Install virtualenv from packages
+
+# Source a global 2.7 virtualenv for convenience
+# Create this with virtualenv ~/.globalpip
+
+if [ -d $HOME/.globalpip ]; then
+  VIRTUAL_ENV_DISABLE_PROMPT=yes source $HOME/.globalpip/bin/activate 
+fi
+
+
 
 
 # Everything done often should be short and fast

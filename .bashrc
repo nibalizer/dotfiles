@@ -32,7 +32,7 @@ fi
 
 # Do I have a very custom ~local I've put things in?
 
-if [ -d $HOME/local ];
+if [ -d $HOME/local ]; then
   export PATH=${HOME}/local/bin:${HOME}/local/sbin:${PATH}
   export MANPATH=${HOME}/local/share/man:${MANPATH}
 fi

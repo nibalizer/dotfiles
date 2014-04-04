@@ -72,6 +72,8 @@ fi
 # Experimental support for globally available virtualenvs
 # Basically implement rvm on top of virtualenv
 
+#TODO switch this out for virtualenvwrapper
+
 if [ -d $HOME/.virtualenvs ]; then
   VENV_ROOT=$HOME/.virtualenvs
   venv-list () {

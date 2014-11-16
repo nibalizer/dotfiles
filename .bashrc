@@ -84,6 +84,7 @@ fi
 # NODE
 # It kills me to need to put this here
 # There doesn't seem to be a rvm/virtualenv/perlbrew for node
+# Correction there is nvm now
 # So we install it from binary tarball into ~/local and hope for the best
 
 # Everything done often should be short and fast
@@ -96,6 +97,11 @@ alias l='ls -F'
 alias la='ls -Fa'
 alias ll='ls -Fl'
 alias x='exit'
+
+# I'm a bad typist
+
+alias sl=ls
+alias mdkir=mkdir
 
 
 # Git aliases
@@ -146,4 +152,49 @@ PS1='[\u@\h \W]\$ '
 
 # There may be local confiugration to soruce
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
+
+# Stuff from maxwell, uncatagorized
+
+alias gs='git show --pretty=oneline'
+alias gpom='git push origin master'
+alias gogozer='git reset --hard origin/hp/gozer; git pull'
+#alias cdp='cd $HOME/work/devel/config' # obsoleted by cdp function
+alias ppv='puppet parser validate'
+export GOPATH=$HOME/go
+
+export PATH=$PATH:$GOPATH/bin
+
+alias doit='TERM=xterm ssh -t destiny ssh -t nightshade screen -dr main'
+alias utcdate='TZ=utc date'
+#alias whatsupdoc='source ~/corepip/bin/activate ; curl -s 'http://graphite.openstack.org/render/?width=586&height=308&_salt=1413871126.453&target=sum%28stats_counts.gerrit.event.*)&format=json' | json_pp | grep ',' | grep -v \] | grep -v target | tr -d "," | diagram'
+
+
+
+if [ -f '/disk/blob/nibz/sandbox/google-cloud-sdk/path.bash.inc' ]; then
+  # The next line updates PATH for the Google Cloud SDK.
+  source '/disk/blob/nibz/sandbox/google-cloud-sdk/path.bash.inc'
+  # The next line enables bash completion for gcloud.
+  source '/disk/blob/nibz/sandbox/google-cloud-sdk/completion.bash.inc'
+fi
+
+
+if [ -f  $HOME/.myshell.sh ]; then
+    source ~/.myshell.sh
+fi
+
+if [ -f $HOME/corepip/bin/activate ]; then
+    VIRTUAL_ENV_DISABLE_PROMPT="Yes Please" source $HOME/corepip/bin/activate
+fi
+export ZSCREEN_SCREENSHOT_DIR=$HOME/Pictures/screenshots
+
+cdp () {
+
+  TEMP_PWD=`pwd`
+  while ! [ -d .git ]; do
+  cd ..
+  done
+  OLDPWD=$TEMP_PWD
+
+}
+
 

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [ -z $1 ]; then
+   echo HODOR need name
+   echo HODOR
+fi
+
+echo HODOR, making vm
+echo HODOR, $1
+
+id=`nova boot --flavor standard.xsmall --key-name nibz-maxwell --image 9d25fe2d-cf31-4b05-8c58-f238ec78e633 $1 | grep -m1 '| id ' | awk '{print $4}'`
+#nova boot --flavor standard.xsmall --key-name nibz-maxwell --image 9d25fe2d-cf31-4b05-8c58-f238ec78e633 $1 
+echo $id
+
+ip=`nova floating-ip-create | awk '/Ext/ { print $2 }'`
+echo $ip
+#nova floating-ip-create | awk '/Ext/ { print $2 }'
+
+echo "HODOR, cloud slow!"
+sleep 15
+
+nova floating-ip-associate $id $ip
+
+ssh ubuntu@$ip
+

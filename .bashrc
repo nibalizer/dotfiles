@@ -184,6 +184,7 @@ fi
 
 if [ -f $HOME/corepip/bin/activate ]; then
     VIRTUAL_ENV_DISABLE_PROMPT="Yes Please" source $HOME/corepip/bin/activate
+    unset $VIRTUAL_ENV_DISABLE_PROMPT
 fi
 export ZSCREEN_SCREENSHOT_DIR=$HOME/Pictures/screenshots
 
@@ -197,4 +198,38 @@ cdp () {
 
 }
 
+
+alias x='xclip -o | xclip -selection clipboard'
+
+# Define and run ssh-agent managment command
+goagent () {
+
+    agent_num=$1
+    if [ -z $agent_num ]; then
+        agent_num=1
+    fi
+    . ~/.ssh/agent_${agent_num}
+    if ! ps -ef | grep ssh-agent | grep $SSH_AGENT_PID >/dev/null ; then
+        ssh-agent |head -n 2 > ~/.ssh/agent_${agent_num}
+        . ~/.ssh/agent_${agent_num}
+    fi
+}
+goagent
+
+sshadd () {
+    ssh-add -c -t 3600
+}
+
+alias domain-list="designate --os-endpoint  https://region-a.geo-1.dns.hpcloudsvc.com/v1/ record-list 9609dad3-fc98-451f-9bfc-0978be5733c5"
+
+
+alias gerrit='ssh -o VisualHostKey=no -p 29418 krum-spencer@review.openstack.org gerrit'
+
+gerritwip () {
+
+#gerrit review e36b12ef9013cb4827044772968e30fdfe488a5d --workflow -1
+commit=`git show | grep -m1 commit | cut -d " " -f 2`
+gerrit review $commit --workflow -1
+
+}
 

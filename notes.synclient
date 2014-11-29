@@ -2,7 +2,7 @@
 #http://uselessuseofcat.com/?p=74
 
 #decreases sensetifitiy
-synclient FingerHigh=50
+synclient FingerHigh=25
 
 
 #tap to click

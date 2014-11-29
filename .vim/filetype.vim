@@ -11,7 +11,7 @@ if has ("autocmd")
     augroup END
 
     "Autocommands to set up tab widths for puppet
-    augroup C_code
+    augroup puppet_code
         autocmd FileType pp
                      \ set shiftwidth=2 softtabstop=2
         autocmd FileType pp

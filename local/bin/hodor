@@ -1,25 +1,47 @@
 #!/bin/bash
 
+DNS_DOMAIN_ID=9609dad3-fc98-451f-9bfc-0978be5733c5
+
 if [ -z $1 ]; then
    echo HODOR need name
    echo HODOR
+   exit 1
+fi
+
+if [ -z $OS_USERNAME ]; then
+   echo HODOR need openstack creds
+   echo HODOR
+   exit 1
+fi
+
+if echo $1 | egrep '(lis|list|lsit)' >/dev/null; then
+    nova list
+    exit 1
+fi
+
+if echo $1 | egrep '\.' >/dev/null ; then
+   echo HODOR need bare name like 'testldap'
+   echo HODOR
+   exit 1
 fi
 
 echo HODOR, making vm
-echo HODOR, $1
+echo HODOR, $1.cloud.nibalizer.com
 
-id=`nova boot --flavor standard.xsmall --key-name nibz-maxwell --image 9d25fe2d-cf31-4b05-8c58-f238ec78e633 $1 | grep -m1 '| id ' | awk '{print $4}'`
+id=`nova boot --flavor standard.xsmall --key-name nibz-maxwell --image 9d25fe2d-cf31-4b05-8c58-f238ec78e633 $1.cloud.nibalizer.com | grep -m1 '| id ' | awk '{print $4}'`
 #nova boot --flavor standard.xsmall --key-name nibz-maxwell --image 9d25fe2d-cf31-4b05-8c58-f238ec78e633 $1 
-echo $id
+echo HODOR, id is $id
 
 ip=`nova floating-ip-create | awk '/Ext/ { print $2 }'`
-echo $ip
+echo HODOR, ip is $ip
+designate --os-endpoint  https://region-a.geo-1.dns.hpcloudsvc.com/v1/ record-create --name $1.cloud.nibalizer.com. --type A --data $ip $DNS_DOMAIN_ID
 #nova floating-ip-create | awk '/Ext/ { print $2 }'
 
 echo "HODOR, cloud slow!"
-sleep 15
-
 nova floating-ip-associate $id $ip
 
-ssh ubuntu@$ip
+while true
+do ssh ubuntu@$ip
+echo "HODOR, cloud slow!"
+done
 

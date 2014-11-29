@@ -223,13 +223,18 @@ sshadd () {
 alias domain-list="designate --os-endpoint  https://region-a.geo-1.dns.hpcloudsvc.com/v1/ record-list 9609dad3-fc98-451f-9bfc-0978be5733c5"
 
 
-alias gerrit='ssh -o VisualHostKey=no -p 29418 krum-spencer@review.openstack.org gerrit'
+gerrit () {
 
-gerritwip () {
+    if [ $1 = "wip" ]; then
+        commit=`git show | grep -m1 commit | cut -d " " -f 2 2>/dev/null`
+        if [ -z $commit ]; then
+            echo "Not in git directory?"
+            return 1
+        fi
+        gerrit review $commit --workflow -1
+        return $?
+    fi
 
-#gerrit review e36b12ef9013cb4827044772968e30fdfe488a5d --workflow -1
-commit=`git show | grep -m1 commit | cut -d " " -f 2`
-gerrit review $commit --workflow -1
-
+    ssh -o VisualHostKey=no -p 29418 krum-spencer@review.openstack.org gerrit $*
 }
 

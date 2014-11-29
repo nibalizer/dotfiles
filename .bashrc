@@ -235,6 +235,8 @@ gerrit () {
         return $?
     fi
 
-    ssh -o VisualHostKey=no -p 29418 krum-spencer@review.openstack.org gerrit $*
+    username=`git config gitreview.username`
+
+    ssh -o VisualHostKey=no -p 29418 $username@review.openstack.org gerrit $*
 }
 

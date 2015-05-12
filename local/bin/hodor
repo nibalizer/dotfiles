@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eux
+
 DNS_DOMAIN_ID=9609dad3-fc98-451f-9bfc-0978be5733c5
 
 if [ -z $1 ]; then
@@ -31,14 +33,20 @@ echo HODOR, $1.cloud.nibalizer.com
 id=`nova boot --flavor standard.xsmall --key-name nibz-maxwell --image 9d25fe2d-cf31-4b05-8c58-f238ec78e633 $1.cloud.nibalizer.com | grep -m1 '| id ' | awk '{print $4}'`
 #nova boot --flavor standard.xsmall --key-name nibz-maxwell --image 9d25fe2d-cf31-4b05-8c58-f238ec78e633 $1 
 echo HODOR, id is $id
+echo Continue?
+read var
 
-ip=`nova floating-ip-create | awk '/Ext/ { print $2 }'`
+ip=`nova floating-ip-create | awk '/Ext/ { print $4 }'`
 echo HODOR, ip is $ip
-designate --os-endpoint  https://region-a.geo-1.dns.hpcloudsvc.com/v1/ record-create --name $1.cloud.nibalizer.com. --type A --data $ip $DNS_DOMAIN_ID
+#designate --os-endpoint  https://region-a.geo-1.dns.hpcloudsvc.com/v1/ record-create --name $1.cloud.nibalizer.com. --type A --data $ip $DNS_DOMAIN_ID
 #nova floating-ip-create | awk '/Ext/ { print $2 }'
+echo Continue?
+read var
 
 echo "HODOR, cloud slow!"
 nova floating-ip-associate $id $ip
+echo Continue?
+read var
 
 while true
 do ssh ubuntu@$ip

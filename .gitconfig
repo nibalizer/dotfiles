@@ -3,6 +3,7 @@
   email = nibz@cat.pdx.edu
 [core]
   editor = vim
+	attributesfile = ~/.gitattributes
 [alias]
   st        = status
   chp       = cherry-pick
@@ -48,6 +49,9 @@
 
 [push]
   default = tracking
+
+[diff "image"]
+  command = ~/local/bin/git-imgdiff
 
 
 [gitreview]

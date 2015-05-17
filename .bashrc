@@ -240,3 +240,68 @@ gerrit () {
     ssh -o VisualHostKey=no -p 29418 $username@review.openstack.org gerrit $*
 }
 
+
+function pr() {
+  id=$1
+  git fetch origin pull/${id}/head:pr_${id}
+  git checkout pr_${id}
+}
+
+function catspeak() {
+  curl --data-binary "$*" -H 'Content-Type: text/plain'  https://intranet.cecs.pdx.edu/api/notify/notify.cgi
+}
+
+
+# added by travis gem
+[ -f /home/nibz/.travis/travis.sh ] && source /home/nibz/.travis/travis.sh
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+#HISTCONTROL=ignoredups:ignorespace
+
+# append to the history file, don't overwrite it
+#shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+#HISTSIZE=1000
+#HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+#shopt -s checkwinsize
+# amixer -D pulse sset Master 5%+
+function cleanfloat() {
+    for ip in `nova floating-ip-list | awk '/ - / {print $4}'`
+        do echo $ip
+        nova floating-ip-delete $ip
+    done
+}
+
+
+### Idea
+# git grep thing
+# vim +/thing file
+# override vim based on if git grep was last thing said
+
+alias fucking=sudo
+#for mopidy
+export XDG_MUSIC_DIR=${HOME}/Music
+export XDG_MUSIC_DIR=${HOME}/Music
+alias gh='cat ~/work/gh'
+
+ghn () {
+  if [ -z $1 ];then
+    echo "Need host"
+    return
+  fi
+  gozerhost=$1
+  gh | grep $gozerhost | cut -d "," -f 2
+
+}
+
+alias feh='feh -F'
+alias setupenv='setxkbmap us -variant colemak -option ctrl:nocaps -option altwin:swap_lalt_lwin'
+
+alias g='git'
+alias gr='git review'
+

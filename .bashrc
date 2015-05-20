@@ -305,3 +305,14 @@ alias setupenv='setxkbmap us -variant colemak -option ctrl:nocaps -option altwin
 alias g='git'
 alias gr='git review'
 
+
+export SC2READER_CACHE_DIR=${HOME}/.sc2cache
+export SC2READER_CACHE_MAX_SIZE=200
+
+
+# Source work things
+
+if [ -f ${HOME}/work/.bash_things ]; then
+    source ${HOME}/work/.bash_things
+fi
+

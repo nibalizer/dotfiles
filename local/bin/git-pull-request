@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -e
+
+#hub pull-request -m "Fix issue with undef" -b echocat:master -h nibalizer:no_proxy
+
+
+title=`git show -q --pretty=oneline | cut -d " " -f 2-599`
+
+my_branch=`git branch | grep '*' | cut -d " " -f 2`
+
+github_user=`git remote show origin| grep Push| awk '{ print $NF}' | cut -d "/" -f 4`
+
+
+echo PRing nibalizer:${my_branch} into ${github_user}:master
+
+hub pull-request -m \""${title}"\" -b $github_user:master -h nibalizer:${my_branch}

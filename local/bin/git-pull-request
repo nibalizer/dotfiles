@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+#TODO: add bash completion
 
 #hub pull-request -m "Fix issue with undef" -b echocat:master -h nibalizer:no_proxy
 

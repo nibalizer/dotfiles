@@ -329,6 +329,7 @@ BASHOPT["BASHOPT_RVM_ENABLE"]=rvm
 BASHOPT["BASHOPT_COREPIP_ENABLE"]=corepip
 BASHOPT["BASHOPT_PROMPT_DIR"]=promptdir
 BASHOPT["BASHOPT_PROMPT_GIT"]=promptgit
+BASHOPT["BASHOPT_PROMPT_RVM"]=promptrvm
 
 export BASHOPT
 
@@ -338,6 +339,7 @@ export BASHOPT_VERBOSE=off
 export BASHOPT_COREPIP_ENABLE=on
 export BASHOPT_PROMPT_DIR=off
 export BASHOPT_PROMPT_GIT=on
+export BASHOPT_PROMPT_RVM=off
 
 if [ -f  $HOME/.bashopt ]; then
     source ~/.bashopt
@@ -355,9 +357,11 @@ bashopt_hook () {
                 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
                 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
                 rvm autolibs disable
+                export BASHOPT_PROMPT_RVM=on
             fi
             if [ $BASHOPT_RVM_ENABLE = 'off' ]; then
                 echo "Disabling RVM. this feature is beta"
+                export BASHOPT_PROMPT_RVM=off
                 rvm use system
                 unset rvm_bin_path
                 unset rvm_path
@@ -383,4 +387,3 @@ bashopt_hook () {
 
 
 ###### END BASHOPT #######
-

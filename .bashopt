@@ -27,6 +27,11 @@ bashopt () {
             fi
 
             long_option=`short_to_long $option`
+            if [ -z $long_option ]; then
+                echo "Invalid option: ${option}"
+                return 1
+            fi
+
             #eval \$$long_option=${setting}
             eval ${long_option}=${setting}
             export $long_option

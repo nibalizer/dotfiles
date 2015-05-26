@@ -316,6 +316,22 @@ if [ -f ${HOME}/work/.bash_things ]; then
     source ${HOME}/work/.bash_things
 fi
 
+###### BEGIN BASHOPT #######
+
+# Use bashopt to control the environment easily
+# Because setting vars is painful
+
+# Set up short:long mapping
+declare -A BASHOPT
+
+BASHOPT["BASHOPT_VERBOSE"]=verb
+BASHOPT["BASHOPT_RVM_ENABLE"]=rvm
+BASHOPT["BASHOPT_COREPIP_ENABLE"]=corepip
+BASHOPT["BASHOPT_PROMPT_DIR"]=promptdir
+BASHOPT["BASHOPT_PROMPT_GIT"]=promptgit
+
+export BASHOPT
+
 #bashopt defaults
 export BASHOPT_RVM_ENABLE=off
 export BASHOPT_VERBOSE=off
@@ -326,3 +342,45 @@ export BASHOPT_PROMPT_GIT=on
 if [ -f  $HOME/.bashopt ]; then
     source ~/.bashopt
 fi
+
+#hook
+
+bashopt_hook () {
+    option=$1
+    case $option in
+        BASHOPT_RVM_ENABLE)
+            if [ $BASHOPT_RVM_ENABLE = 'on' ]; then
+                echo "Enabling RVM. vroooom"
+                # Load RVM into a shell session *as a function*
+                [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+                export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+                rvm autolibs disable
+            fi
+            if [ $BASHOPT_RVM_ENABLE = 'off' ]; then
+                echo "Disabling RVM. this feature is beta"
+                rvm use system
+                unset rvm_bin_path
+                unset rvm_path
+                unset rvm_prefix
+                unset rvm_version
+                unset rvm_ruby_string
+                unset rvm_delete_flag
+                unset -f rvm
+                echo "WARNING: ${HOME}/.rvm/bin is still in PATH"
+                rvm () {
+                    echo "Nope"
+                    return 1
+                }
+
+            fi
+
+            ;;
+        *)
+            :
+            ;;
+    esac
+}
+
+
+###### END BASHOPT #######
+

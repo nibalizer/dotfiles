@@ -316,3 +316,9 @@ if [ -f ${HOME}/work/.bash_things ]; then
     source ${HOME}/work/.bash_things
 fi
 
+#bashopt defaults
+export BASHOPT_RVM_ENABLE=off
+
+if [ -f  $HOME/.bashopt ]; then
+    source ~/.bashopt
+fi

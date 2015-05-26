@@ -2,15 +2,6 @@
 
 #echo "Bash options, totally custom"
 
-declare -A BASHOPT
-
-BASHOPT["BASHOPT_VERBOSE"]=verb
-BASHOPT["BASHOPT_RVM_ENABLE"]=rvm
-BASHOPT["BASHOPT_COREPIP_ENABLE"]=corepip
-BASHOPT["BASHOPT_PROMPT_DIR"]=promptdir
-BASHOPT["BASHOPT_PROMPT_GIT"]=promptgit
-
-export BASHOPT
 
 
 short_to_long () {
@@ -23,8 +14,6 @@ short_to_long () {
     done
     echo $long
 }
-
-#export -f short_to_long
 
 bashopt () {
 
@@ -41,6 +30,7 @@ bashopt () {
             #eval \$$long_option=${setting}
             eval ${long_option}=${setting}
             export $long_option
+            bashopt_hook $long_option
         else
             long_option=`short_to_long $option`
             echo -n "${option} "
@@ -59,4 +49,3 @@ bashopt () {
 
 }
 
-#export -f bashopt

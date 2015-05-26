@@ -147,11 +147,13 @@ set_prompt () {
   if sudo -n -v 2>/dev/null ; then
     PS1+="[${BRed}DNGR${Color_Off}]"
   fi
-  if [ $BASHOPT_PROMPT_SHOW_DIR = 'on' ]; then
+  if [ $BASHOPT_PROMPT_DIR = 'on' ]; then
       PS1+='\w '
   fi
+  if [ $BASHOPT_PROMPT_GIT = 'on' ]; then
+      PS1+=$(__git_ps1)
+  fi
 
-  PS1+=$(__git_ps1)
 
   if [[ $SUCCESS != 0 ]] ; then
     SUCC_STAT="${RED}"

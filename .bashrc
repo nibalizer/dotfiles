@@ -320,7 +320,8 @@ fi
 export BASHOPT_RVM_ENABLE=off
 export BASHOPT_VERBOSE=off
 export BASHOPT_COREPIP_ENABLE=on
-export BASHOPT_PROMPT_SHOW_DIR=off
+export BASHOPT_PROMPT_DIR=off
+export BASHOPT_PROMPT_GIT=on
 
 if [ -f  $HOME/.bashopt ]; then
     source ~/.bashopt

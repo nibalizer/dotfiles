@@ -1,0 +1,49 @@
+#!/bin/bash
+
+#echo "Bash options, totally custom"
+
+
+short_to_long () {
+    short=$1
+    case $1 in
+        rvm)
+            long=BASHOPT_RVM_ENABLE
+            ;;
+        *)
+            long=''
+            return 1
+    esac
+    echo $long
+}
+
+export -f short_to_long
+
+bashopt () {
+
+    if ! [ -z $1 ]; then
+        option=$1
+        if ! [ -z $2 ];then
+            setting=$2
+            if [[ $setting !=  'on' ]] && [[ $setting != 'off' ]]; then
+                echo "Must set options to 'on' or 'off'"
+                return 1
+            fi
+
+            long_option=`short_to_long $option`
+            #eval \$$long_option=${setting}
+            eval ${long_option}=${setting}
+            export $long_option
+        else
+            long_option=`short_to_long $option`
+            echo -n "${option} "
+            #eval echo \$$long_option
+            echo ${!long_option}
+
+        fi
+    else
+        echo "rvm ${BASHOPT_RVM_ENABLE}"
+    fi
+
+}
+
+export -f bashopt

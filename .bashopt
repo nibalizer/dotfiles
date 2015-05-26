@@ -2,21 +2,28 @@
 
 #echo "Bash options, totally custom"
 
+declare -A BASHOPT
+
+BASHOPT["BASHOPT_VERBOSE"]=verb
+BASHOPT["BASHOPT_RVM_ENABLE"]=rvm
+BASHOPT["BASHOPT_COREPIP_ENABLE"]=corepip
+BASHOPT["BASHOPT_PROMPT_SHOW_DIR"]=showdir
+
+export BASHOPT
+
 
 short_to_long () {
     short=$1
-    case $1 in
-        rvm)
-            long=BASHOPT_RVM_ENABLE
-            ;;
-        *)
-            long=''
-            return 1
-    esac
+    for OPTION in ${!BASHOPT[*]}; do
+        if [ ${BASHOPT[$OPTION]} = ${short} ]; then
+            long=${OPTION}
+            break
+        fi
+    done
     echo $long
 }
 
-export -f short_to_long
+#export -f short_to_long
 
 bashopt () {
 
@@ -41,9 +48,14 @@ bashopt () {
 
         fi
     else
-        echo "rvm ${BASHOPT_RVM_ENABLE}"
+        for OPTION in ${!BASHOPT[*]}; do
+            long=$OPTION
+            short=${BASHOPT[$OPTION]}
+            echo -en "${short} \t"
+            echo ${!long}
+        done
     fi
 
 }
 
-export -f bashopt
+#export -f bashopt

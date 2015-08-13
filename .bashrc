@@ -217,7 +217,11 @@ goagent () {
 goagent
 
 sshadd () {
-    ssh-add -c -t 3600
+    if [ -z $1 ]; then
+        echo Need file
+        return 1
+    fi
+    ssh-add -c -t 43200 $1
 }
 
 alias domain-list="designate --os-endpoint  https://region-a.geo-1.dns.hpcloudsvc.com/v1/ record-list 9609dad3-fc98-451f-9bfc-0978be5733c5"

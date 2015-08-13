@@ -330,6 +330,7 @@ BASHOPT["BASHOPT_COREPIP_ENABLE"]=corepip
 BASHOPT["BASHOPT_PROMPT_DIR"]=promptdir
 BASHOPT["BASHOPT_PROMPT_GIT"]=promptgit
 BASHOPT["BASHOPT_PROMPT_RVM"]=promptrvm
+BASHOPT["BASHOPT_PROMPT_FS"]=promptfs
 
 export BASHOPT
 
@@ -340,6 +341,7 @@ export BASHOPT_COREPIP_ENABLE=on
 export BASHOPT_PROMPT_DIR=off
 export BASHOPT_PROMPT_GIT=on
 export BASHOPT_PROMPT_RVM=off
+export BASHOPT_PROMPT_FS=on
 
 if [ -f  $HOME/.bashopt ]; then
     source ~/.bashopt
@@ -387,3 +389,19 @@ bashopt_hook () {
 
 
 ###### END BASHOPT #######
+
+alias cdd='cd ~/devel'
+source ~/.bashrc_local
+gobook() {
+    ssh -N -f -L 3389:localhost:3389 telescope.cat.pdx.edu
+    rdesktop -K -u nibz -p $WINDOWS_PASSWORD -g 95% localhost  -r disk:F=/home/nibz/Public
+}
+
+alias ssh300='ssh-add -t 300'
+
+# Add sbin to path
+export PATH=${PATH}:/sbin/:/usr/sbin
+
+#git log --since `date --date 'last year' +%s
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+alias yamlcheck='python -c "import sys, yaml as y; y.safe_load(open(sys.argv[1]))"'

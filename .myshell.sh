@@ -150,8 +150,14 @@ set_prompt () {
   if [ $BASHOPT_PROMPT_DIR = 'on' ]; then
       PS1+='\w '
   fi
+  if [ $BASHOPT_PROMPT_RVM = 'on' ]; then
+      PS1+="${BYellow}[$(rvm-prompt)]${Color_Off}"
+  fi
   if [ $BASHOPT_PROMPT_GIT = 'on' ]; then
       PS1+=$(__git_ps1)
+  fi
+  if [ $BASHOPT_PROMPT_FS = 'on' ]; then
+      PS1+=$(mymount.sh)
   fi
 
 

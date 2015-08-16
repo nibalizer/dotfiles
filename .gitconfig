@@ -1,5 +1,9 @@
 [user]
   name = Spencer Krum
+  #email = nibz@cat.pdx.edu
+  #email = nibz@hp.com
+  #email = spencer.krum@hp.com
+  #email = krum.spencer@gmail.com
   email = nibz@cat.pdx.edu
 [core]
   editor = vim
@@ -20,11 +24,13 @@
   pg        = log --pretty=format:'%h : %s' --graph
   sgrep     = "!f() { git submodule foreach \"git grep '$1'; true\" | grep -B 1 \"$1\"; }; f"
 
+  # these come from gitimersion
+  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+
 [color]
   ui = true
-
-
-[alias]
 
 [color]
   branch = auto
@@ -53,6 +59,11 @@
 [diff "image"]
   command = ~/local/bin/git-imgdiff
 
-
 [gitreview]
   username = krum-spencer
+
+[http]
+	postBuffer = 1048576000
+
+[grep]
+  lineNumber = true

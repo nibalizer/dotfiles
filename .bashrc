@@ -1,6 +1,9 @@
 # Spencer Krum a.k.a nibalizer's environment
 # Specifically staying within bash here
 
+# This file is not really my bashrc, as you'll see many conflicting things
+# This is a reference bashrc I copy things out of and in to.
+
 # Check for an interactive session
 [ -z "$PS1" ] && return
 

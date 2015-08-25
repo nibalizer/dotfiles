@@ -282,11 +282,6 @@ function cleanfloat() {
 }
 
 
-### Idea
-# git grep thing
-# vim +/thing file
-# override vim based on if git grep was last thing said
-
 alias fucking=sudo
 #for mopidy
 export XDG_MUSIC_DIR=${HOME}/Music
@@ -422,4 +417,15 @@ export PATH=${PATH}:${GOROOT}/bin:${GOPATH}/bin
 
 alias bsc='git add .; git commit -a -m "Bull Shit Commit"; git push origin master'
 alias alphabet='echo a b c d e f g h i j k l m n o p q r s t u v w x y z'
+
+vim () {
+    last_command=$(history | tail -n 2 | head -n 1)
+    if [[ $last_command =~ 'git grep' ]] && [[ "$*" =~ :[0-9]+:$ ]]; then
+        line_number=$(echo $* | awk -F: '{print $(NF-1)}')
+        /usr/bin/vim +${line_number} ${*%:${line_number}:}
+    else
+        /usr/bin/vim $*
+    fi
+}
+
 

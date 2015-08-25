@@ -409,3 +409,17 @@ export PATH=${PATH}:/sbin/:/usr/sbin
 #git log --since `date --date 'last year' +%s
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 alias yamlcheck='python -c "import sys, yaml as y; y.safe_load(open(sys.argv[1]))"'
+alias jsoncheck='jq "." < '
+
+# byzanz-record # record desktop to animated gif
+
+
+# Go, fuck me
+export GOPATH=${HOME}/gocode
+export GOBIN=${GOPATH}/bin
+export PATH=${PATH}:${GOROOT}/bin:${GOPATH}/bin
+
+
+alias bsc='git add .; git commit -a -m "Bull Shit Commit"; git push origin master'
+alias alphabet='echo a b c d e f g h i j k l m n o p q r s t u v w x y z'
+

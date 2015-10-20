@@ -432,3 +432,7 @@ vim () {
 }
 
 
+
+#lady() { man "$1" } # from mlane
+alias lady=man
+

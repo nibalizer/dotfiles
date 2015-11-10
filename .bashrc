@@ -436,3 +436,4 @@ vim () {
 #lady() { man "$1" } # from mlane
 alias lady=man
 
+rfc2616='cat ~/.reference/codes | grep '

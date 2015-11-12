@@ -241,6 +241,17 @@ gerrit () {
         gerrit review $commit --workflow -1
         return $?
     fi
+    if [ $1 = "link" ]; then
+        commit_sha=`git rev-parse HEAD`
+        if [ -z $commit_sha ]; then
+            echo "Not in git directory?"
+            return 1
+        fi
+        change_id=`git show $commit_sha | grep -m1 'Change-Id' | grep -oE ' I.*' | tr -d " "`
+        echo "https://review.openstack.org/#/q/${change_id},n,z"
+        return $?
+
+    fi
 
     username=`git config gitreview.username`
 

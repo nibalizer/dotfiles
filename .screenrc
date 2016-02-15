@@ -1,0 +1,11 @@
+#caption string "%w"
+#backtick 1 5 5 uptime
+#hardstatus alwayslastline "%1`"
+#caption     always        "%{+b rk}%H%{gk} |%c %{yk}%d.%m.%Y | %72=Load: %l %{wk}"
+#hardstatus alwayslastline "%?%{yk}%-Lw%?%{wb}%n*%f %t%?(%u)%?%?%{yk}%+Lw%?"
+##k
+hardstatus alwayslastline
+hardstatus string '%{= kw}[ %{= kb}%H%{= kw} ][%= %{= kw}%?%-Lw%?%{= kG}%n*%f %t%?%?%{= kw}%?%+Lw%?%?%= ][ %{g}%l%{w} ]%{w}[%{g} %d/%m/%y %C %A %{w}]%{w}'
+vbell off
+defscrollback 10000
+

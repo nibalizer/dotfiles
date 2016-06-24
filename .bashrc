@@ -448,3 +448,56 @@ vim () {
 alias lady=man
 
 rfc2616='cat ~/.reference/codes | grep '
+
+
+
+
+selectors () {
+    echo '<p class="key" id="principal">'
+    echo
+    echo '.key  #principal '
+}
+
+
+alias etcdctl='/home/nibz/projects/tinc_consul/etcd/etcd-v2.2.4-linux-amd64/etcdctl'
+alias demogods='toilet --gay woo demo'
+
+alias be='bundle exec'
+
+weather () {
+    curl -4 http://wttr.in/${1}
+    :
+}
+
+
+alias gitbranchfix='git fetch origin; git branch --set-upstream-to=origin/master master'
+alias rv='remote-viewer spice://localhost:5900'
+alias pseudo='[ $((RANDOM % 2)) -eq 0 ] && sudo' # from jason owen
+#todo something that takes a pipe of lines and emits json
+alias trek='cd /home/nibz/Videos/Star.Trek.*; mshuffle'
+
+
+pathadd () {
+    if [ -z $1 ];then
+        echo "Need a path to add"
+        return 1
+    fi
+    export PATH=${PATH}:$1
+}
+
+
+alias t=terraform
+
+fname () {
+    item=$1
+    find . -name "*${item}*"
+}
+
+newruby () {
+    file=`tempfile`
+    rm -f $file
+    mkdir $file
+    export GEM_HOME=${file}
+    export PATH=${PATH}:${GEM_HOME}/bin
+    gem install bundler
+}

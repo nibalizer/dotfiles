@@ -123,6 +123,7 @@ alias gg='git grep'
 alias gr='git remote'
 alias gp='git pull'
 alias gpom='git push origin master'
+alias grom='git reset --hard origin/master'
 
 
 # Going beyond aliases

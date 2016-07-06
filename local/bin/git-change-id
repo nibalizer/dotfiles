@@ -1,0 +1,10 @@
+#!/bin/bash
+
+change_id=$1
+
+if [ -z $change_id ]; then
+  echo "Usage $0 <change-id>"
+  exit 1
+fi
+
+git log --all --grep=${change_id}

@@ -15,4 +15,4 @@ github_user=$(git remote show origin | awk -F'/' '/Push/ {print $4}')
 
 echo PRing nibalizer:"${my_branch}" into "${github_user}":master
 
-hub pull-request -m \""${title}"\" -b "$github_user":master -h nibalizer:"${my_branch}"
+hub pull-request -m "${title}" -b "$github_user":master -h nibalizer:"${my_branch}"

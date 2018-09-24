@@ -1,14 +1,13 @@
 [user]
   name = Spencer Krum
-  #email = nibz@cat.pdx.edu
-  #email = nibz@hp.com
-  #email = spencer.krum@hp.com
-  #email = krum.spencer@gmail.com
-  email = nibz@cat.pdx.edu
+  email = nibz@spencerkrum.com
+
 [core]
   editor = vim
-	attributesfile = ~/.gitattributes
+  attributesfile = ~/.gitattributes
+
 [alias]
+  gerp      = grep
   st        = status
   chp       = cherry-pick
   su        = submodule
@@ -61,9 +60,6 @@
 
 [gitreview]
   username = krum-spencer
-
-[http]
-	postBuffer = 1048576000
 
 [grep]
   lineNumber = true

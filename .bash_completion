@@ -1,0 +1,11 @@
+# Bash Completion User Defined script
+
+
+if [ -d ${HOME}/.bash_completion.d ]; then
+	for file in ${HOME}/.bash_completion.d/*
+	do
+		if [ -f ${file} ]; then
+			. ${file}
+		fi
+	done
+fi

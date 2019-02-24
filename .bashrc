@@ -116,3 +116,6 @@ fi
 
 # Yes I am aware Debian seems to prefer .local
 export PATH=${HOME}/local/bin:${PATH}
+
+# Use the beta ux for the IBM Cloud Kubernetes cli tool
+export IKS_BETA_VERSION=1.0

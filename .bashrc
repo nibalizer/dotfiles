@@ -114,8 +114,17 @@ fi
 
 # ==== Above this line Debian Default
 
+# = Path Munging
+
 # Yes I am aware Debian seems to prefer .local
 export PATH=${HOME}/local/bin:${PATH}
 
+
+# = IBM
+
 # Use the beta ux for the IBM Cloud Kubernetes cli tool
 export IKS_BETA_VERSION=1.0
+# .bash_completion is automatically sourced by debian's default files
+# ibmcloud_cli autocompletion is installed to ~/.bash_completion.d by (my) installer
+# I am not a 'real' user so disable ibmcloud cli analytics
+export IBMCLOUD_ANALYTICS=false

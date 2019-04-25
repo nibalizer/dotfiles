@@ -127,6 +127,7 @@ export IKS_BETA_VERSION=1.0
 # I am not a 'real' user so disable ibmcloud cli analytics
 export IBMCLOUD_ANALYTICS=false
 alias iks='ibmcloud ks'
+alias ikcc='ibmcloud ks cluster config'
 
 # = The land of aliases
 alias alphabet='echo a b c d e f g h i j k l m n o p q r s t u v w x y z'

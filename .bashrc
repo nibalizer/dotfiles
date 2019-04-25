@@ -140,6 +140,8 @@ alias fucking='sudo'
 alias gitbranchfix='git fetch origin; git branch --set-upstream-to=origin/master master'
 alias grep='grep --color=auto'
 alias jsoncheck='jq "." < '
+alias k=kubectl
+alias kks='kubectl -n kube-system'
 alias lady='man' # from mlane
 alias ll='ls -l'
 alias ls='ls -F --color=auto'

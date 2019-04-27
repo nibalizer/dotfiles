@@ -145,6 +145,7 @@ alias kks='kubectl -n kube-system'
 alias lady='man' # from mlane
 alias ll='ls -l'
 alias ls='ls -F --color=auto'
+alias markdown="cat ${HOME}/local/share/markdown_reference.txt"
 alias ppv='puppet parser validate'
 alias pseudo='[ $((RANDOM % 2)) -eq 0 ] && sudo' # from jason owen
 alias rfc2616='cat ${HOME}/local/share/rfc2616_reference.txt'

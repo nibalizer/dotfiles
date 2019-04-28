@@ -1,0 +1,27 @@
+
+RFCs 2616, 2817, 7231 HTTP Status Codes
+─────────────────────────────────────────────────────────────────────────────
+Informational 1xx                      User Error 4xx
+100   Continue                         400   Bad Request 
+101   Switching Protocols              401   Unauthorized
+Successful 2xx                         402   Payment Required
+200   OK                               403   Forbidden
+201   Created                          404   Not Found
+202   Accepted                         405   Method Not Allowed
+203   Non-Authoritative Information    406   Not Acceptable
+204   No Content                       407   Proxy Authentication Required
+205   Reset Content                    408   Request Timeout
+206   Partial Content                  409   Conflict
+Redirection 3xx                        410   Gone
+300   Multiple Choices                 411   Length Required
+301   Moved Permanently                412   Precondition Failed
+302   Found                            413   Request Entity Too Large
+303   See Other                        414   Request-URI Too Long
+304   Not Modified                     415   Unsupported Media Type
+305   Use Proxy                        416   Requested Range Not Satisfiable
+306   (Unused)                         417   Expectation Failed
+307   Temporary Redirect               420   Enhance Your Calm 
+Server Error 5xx
+500   Internal Server Error            501   Not Implemented
+502   Bad Gateway                      503   Service Unavailable
+504   Gateway Timeout                  505   HTTP Version Not Supported

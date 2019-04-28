@@ -12,3 +12,6 @@ set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
+
+" References
+" http://mislav.uniqpath.com/2011/12/vim-revisited/

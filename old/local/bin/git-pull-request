@@ -8,7 +8,7 @@ set -e
 
 title=$(git show -q --pretty=oneline | cut -d " " -f 2-599)
 
-my_branch=$(git branch | awk '/*/ {print $2}')
+my_branch=$(git branch | awk '/\*/ {print $2}')
 
 github_user=$(git remote show origin | awk -F'/' '/Push/ {print $4}')
 

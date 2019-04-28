@@ -1,0 +1,2 @@
+At a minimum we keep ibmcloud_autocomplete in this directory
+Which is managed by this script: https://github.com/nibalizer/very_misc_scripts/blob/master/install_or_upgrade_ibmcloud_cli.sh

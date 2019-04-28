@@ -56,6 +56,8 @@
   default = tracking
 
 [diff "image"]
+  # this + the .gitattributes settings make 'git diff' show images when changed
+  # I got this from some blog I've lost the link to, but would love to credit them
   command = ~/local/bin/git-imgdiff
 
 [gitreview]

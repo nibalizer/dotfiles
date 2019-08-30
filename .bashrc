@@ -117,6 +117,7 @@ fi
 # = Path Munging
 # Yes I am aware Debian seems to prefer .local
 export PATH=${HOME}/local/bin:${PATH}
+export PATH=${PATH}:${HOME}/go/bin
 
 
 # = IBM
@@ -145,6 +146,7 @@ alias kks='kubectl -n kube-system'
 alias lady='man' # from mlane
 alias ll='ls -l'
 alias ls='ls -F --color=auto'
+alias l=ls
 alias markdown="cat ${HOME}/local/share/markdown_reference.txt"
 alias ppv='puppet parser validate'
 alias pseudo='[ $((RANDOM % 2)) -eq 0 ] && sudo' # from jason owen
@@ -239,4 +241,5 @@ alias xorg='. /home/nibz/Documents/Scripts/xorg.sh'
 alias pgc='ping google.com'
 alias goodnight='. $SCRIPTS/sleep.sh'
 alias rtfm='man'
+
 

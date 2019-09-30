@@ -1,7 +1,8 @@
+" Packages/plugins provided by vim 8.0+ native packaging
+" Be sure to run submodule init!
 set t_Co=256
 set nocompatible               " don't need no vi
 set number
-"execute pathogen#infect() " moving to native packages
 syntax on
 filetype plugin indent on
 set ts=4
@@ -20,3 +21,4 @@ set smartcase                   " ... unless they contain at least one capital l
 " let g:go_fmt_command = "goimports"
 "
 colorscheme monokai
+

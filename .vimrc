@@ -1,7 +1,7 @@
 set t_Co=256
 set nocompatible               " don't need no vi
 set number
-execute pathogen#infect()
+"execute pathogen#infect() " moving to native packages
 syntax on
 filetype plugin indent on
 set ts=4

@@ -24,6 +24,8 @@ let mapleader = "-"             " set leaderkey to -
 "
 colorscheme monokai
 
+" vim-go
 nnoremap <leader>r :GoRun<enter>
 nnoremap <leader>b :GoBuild<enter>
+" vim-fugitive
 nnoremap <leader>g :Gblame<enter>

@@ -26,3 +26,4 @@ colorscheme monokai
 
 nnoremap <leader>r :GoRun<enter>
 nnoremap <leader>b :GoBuild<enter>
+nnoremap <leader>g :Gblame<enter>

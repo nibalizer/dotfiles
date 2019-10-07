@@ -130,7 +130,7 @@ export IBMCLOUD_ANALYTICS=false
 alias iks='ibmcloud ks'
 alias ikcc='ibmcloud ks cluster config'
 # Consider anything from IBM private
-export GOPRIVATE=*.ibm.com,${GOPRIVATE}
+export GOPRIVATE=direct
 
 # = The land of aliases
 alias alphabet='echo a b c d e f g h i j k l m n o p q r s t u v w x y z'

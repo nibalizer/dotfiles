@@ -4,6 +4,6 @@
 [submodule ".vim/pack/nibalizer/start/vim-go"]
 	path = .vim/pack/nibalizer/start/vim-go
 	url = https://github.com/fatih/vim-go
-[submodule "/home/nibz/.vim/pack/nibalizer/start/utilsnips"]
-	path = /home/nibz/.vim/pack/nibalizer/start/utilsnips
+[submodule ".vim/pack/nibalizer/start/utilsnips"]
+	path = .vim/pack/nibalizer/start/utilsnips
 	url = https://github.com/SirVer/ultisnips

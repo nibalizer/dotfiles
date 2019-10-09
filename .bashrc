@@ -134,10 +134,13 @@ export GOPRIVATE=direct
 
 # = The land of aliases
 alias alphabet='echo a b c d e f g h i j k l m n o p q r s t u v w x y z'
+alias arst='setxkbmap us'
+alias asdf='setxkbmap us -variant colemak -option ctrl:nocaps'
 alias bsc='git add .; git commit -a -m "Bull Shit Commit"; git push origin master'
 alias demogods='toilet --gay --font mono9 woo demo'
 alias egrep='egrep --color=auto'
 alias feh='feh -F'
+alias ff='firefox --new-instance --profilemanager &'
 alias fgrep='fgrep --color=auto'
 alias fucking='sudo'
 alias gitbranchfix='git fetch origin; git branch --set-upstream-to=origin/master master'
@@ -146,9 +149,9 @@ alias jsoncheck='jq "." < '
 alias k=kubectl
 alias kks='kubectl -n kube-system'
 alias lady='man' # from mlane
+alias l=ls
 alias ll='ls -l'
 alias ls='ls -F --color=auto'
-alias l=ls
 alias markdown="cat ${HOME}/local/share/markdown_reference.txt"
 alias ppv='puppet parser validate'
 alias pseudo='[ $((RANDOM % 2)) -eq 0 ] && sudo' # from jason owen

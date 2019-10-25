@@ -130,7 +130,7 @@ export IBMCLOUD_ANALYTICS=false
 alias iks='ibmcloud ks'
 alias ikcc='ibmcloud ks cluster config'
 # Consider anything from IBM private
-export GOPRIVATE=direct
+#export GOPRIVATE=direct
 
 # = The land of aliases
 alias alphabet='echo a b c d e f g h i j k l m n o p q r s t u v w x y z'
@@ -161,6 +161,7 @@ alias sdr='screen -dr'
 alias selectors="cat ${HOME}/local/share/css_reference.txt"
 alias ssh300='ssh-add -t 300'
 alias t='terraform'
+alias tf='terraform'
 alias ta='tmux attach'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 alias utcdate='TZ=utc date'

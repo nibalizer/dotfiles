@@ -118,6 +118,8 @@ fi
 # Yes I am aware Debian seems to prefer .local
 export PATH=${HOME}/local/bin:${PATH}
 export PATH=${PATH}:${HOME}/go/bin
+# https://tinygo.org/
+export PATH=${PATH}:/usr/local/tinygo/bin/
 
 
 # = IBM

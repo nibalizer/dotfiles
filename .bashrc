@@ -119,7 +119,7 @@ fi
 export PATH=${HOME}/local/bin:${PATH}
 export PATH=${PATH}:${HOME}/go/bin
 # https://tinygo.org/
-export PATH=${PATH}:/usr/local/tinygo/bin/
+export PATH=${PATH}:/usr/local/tinygo/bin
 
 
 # = IBM

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ -z $1 ]; then
+    echo ghclone: usage error
+    echo ghclone https://github.com/example/repo
+    exit 1
+fi
+
+#https://github.com/example/repo
+url=$1
+org=$(echo ${url} | cut -d "/" -f 4)
+reponame=$(echo ${url} | cut -d "/" -f 5)
+
+mkdir -p ~/devel/${org}
+PWDSAVE=$PWD
+OLDPWDSAVE=$OLDPWD
+cd ~/devel/${org}
+git clone $url
+cd $PWDSAVE
+export OLDPWD=$OLDPWDSAVE
+echo "~/devel/${org}/${reponame}"
+
+

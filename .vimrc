@@ -29,3 +29,18 @@ nnoremap <leader>r :GoRun<enter>
 nnoremap <leader>b :GoBuild<enter>
 " vim-fugitive
 nnoremap <leader>g :Gblame<enter>
+
+" Show tabs and trailing whitespace visually
+if (&termencoding == "utf-8") || has("gui_running")
+    if v:version >= 700
+        set list listchars=tab:»·,trail:·,extends:…,nbsp:‗
+    else
+        set list listchars=tab:»·,trail:·,extends:…
+    endif
+else
+    if v:version >= 700
+        set list listchars=tab:>-,trail:.,extends:>,nbsp:_
+    else
+        set list listchars=tab:>-,trail:.,extends:>
+    endif
+endif

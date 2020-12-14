@@ -7,3 +7,12 @@
 [submodule ".vim/pack/nibalizer/start/utilsnips"]
 	path = .vim/pack/nibalizer/start/utilsnips
 	url = https://github.com/SirVer/ultisnips
+[submodule ".vim/pack/nibalizer/start/vim-js"]
+	path = .vim/pack/nibalizer/start/vim-js
+	url = https://github.com/yuezk/vim-js
+[submodule ".vim/pack/nibalizer/start/vim-jsx-pretty"]
+	path = .vim/pack/nibalizer/start/vim-jsx-pretty
+	url = https://github.com/MaxMEllon/vim-jsx-pretty
+[submodule ".vim/pack/nibalizer/start/nerdtree"]
+	path = .vim/pack/nibalizer/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git

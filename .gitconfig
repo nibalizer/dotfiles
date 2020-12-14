@@ -66,3 +66,15 @@
 [grep]
   lineNumber = true
 
+[url "git@github.ibm.com:"]
+    insteadOf = https://github.ibm.com/
+
+[commit]
+    status = true
+    verbose = false
+    extendedTemplate = /home/nibz/.git_commit_template
+    cleanup = strip
+
+[init]
+    # woo
+   defaultBranch = main

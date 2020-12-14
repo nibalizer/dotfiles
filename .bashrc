@@ -43,7 +43,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -59,7 +59,7 @@ fi
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$(__git_ps1)$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -120,6 +120,8 @@ export PATH=${HOME}/local/bin:${PATH}
 export PATH=${PATH}:${HOME}/go/bin
 # https://tinygo.org/
 export PATH=${PATH}:/usr/local/tinygo/bin
+# Local utilities installed via npm
+export PATH=${PATH}:${HOME}/.node/node_modules/.bin/
 
 
 # = IBM
@@ -138,6 +140,7 @@ alias ikcc='ibmcloud ks cluster config'
 alias alphabet='echo a b c d e f g h i j k l m n o p q r s t u v w x y z'
 alias arst='setxkbmap us'
 alias asdf='setxkbmap us -variant colemak -option ctrl:nocaps'
+alias awatch='watch '
 alias bsc='git add .; git commit -a -m "Bull Shit Commit"; git push origin master'
 alias demogods='toilet --gay --font mono9 woo demo'
 alias egrep='egrep --color=auto'
@@ -149,7 +152,9 @@ alias gitbranchfix='git fetch origin; git branch --set-upstream-to=origin/master
 alias grep='grep --color=auto'
 alias jsoncheck='jq "." < '
 alias k=kubectl
+alias krew='kubectl krew'
 alias kks='kubectl -n kube-system'
+alias kns='kubectl -n kube-system'
 alias lady='man' # from mlane
 alias l=ls
 alias ll='ls -l'
@@ -164,6 +169,8 @@ alias selectors="cat ${HOME}/local/share/css_reference.txt"
 alias ssh300='ssh-add -t 300'
 alias t='terraform'
 alias tf='terraform'
+alias tfaa='terraform apply -auto-approve'
+alias tfaaa='terraform apply -auto-approve'
 alias ta='tmux attach'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 alias utcdate='TZ=utc date'
@@ -251,3 +258,7 @@ alias goodnight='. $SCRIPTS/sleep.sh'
 alias rtfm='man'
 
 
+alias meagaclear='timeout 6 cbeams -o; reset; clear'
+
+export PATH="${PATH}:${HOME}/.krew/bin"
+alias jcurl='curl -H "Content-Type: application/json" -H "Accept: application/json"'

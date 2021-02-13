@@ -1,5 +1,7 @@
 " Packages/plugins provided by vim 8.0+ native packaging
 " Be sure to run submodule init!
+set encoding=utf-8
+set fileencoding=utf-8
 set t_Co=256
 set mouse-=a                   " really never want the mouse
 set nocompatible               " don't need no vi
@@ -33,6 +35,10 @@ nnoremap <leader>b :GoBuild<enter>
 nnoremap <leader>t :GoTest<enter>
 " vim-fugitive
 nnoremap <leader>g :Gblame<enter>
+" minimap
+nnoremap <leader>m :MinimapToggle<enter>
+" Nerd tree
+nnoremap <leader>n :NERDTreeToggle<enter>
 
 " Show tabs and trailing whitespace visually
 if (&termencoding == "utf-8") || has("gui_running")
@@ -48,3 +54,6 @@ else
         set list listchars=tab:>-,trail:.,extends:>
     endif
 endif
+
+" minimap
+let g:minimap_block_filetypes = ['fugitive', 'nerdtree', 'tagbar' ]

@@ -262,3 +262,4 @@ alias meagaclear='timeout 6 cbeams -o; reset; clear'
 
 export PATH="${PATH}:${HOME}/.krew/bin"
 alias jcurl='curl -H "Content-Type: application/json" -H "Accept: application/json"'
+# PROMPT_DIRTRIM=1

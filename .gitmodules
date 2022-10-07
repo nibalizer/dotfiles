@@ -16,3 +16,6 @@
 [submodule ".vim/pack/nibalizer/start/nerdtree"]
 	path = .vim/pack/nibalizer/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git
+[submodule "/home/nibz/.vim/pack/nibalizer/start/vim-terraform"]
+	path = /home/nibz/.vim/pack/nibalizer/start/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git

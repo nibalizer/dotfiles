@@ -201,6 +201,15 @@ alias gs='git status'
 
 # = Useful Functions
 
+venv38 () {
+    if [ -d venv ]; then
+        echo "Error: venv exists"
+        return 1
+    fi
+    virtualenv --python=python3.8 venv
+    source venv/bin/activate
+}
+
 # Show the weather
 weather () {
     curl -4 http://wttr.in/${1}

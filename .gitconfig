@@ -16,7 +16,7 @@
   sup       = "!f() { git submodule sync; git submodule update; }; f"
   co        = checkout
   b         = branch
-  ba        = branch --all
+  ba        = branch --all -v
   ci        = commit
   unstage   = reset HEAD --
   last      = log -1 HEAD
@@ -78,3 +78,8 @@
 [init]
     # woo
    defaultBranch = main
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

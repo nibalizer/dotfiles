@@ -4,3 +4,11 @@ variable "$1" {
   type = ${2:string}
 }
 endsnippet
+
+
+snippet out "output def" b
+output "$1" {
+  description = "$2"
+  value       = $1
+}
+endsnippet

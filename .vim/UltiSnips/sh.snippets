@@ -1,0 +1,6 @@
+snippet -z "Simple test empty" b
+if [ -z "${$1}" ]; then
+    echo "${$1} is not set!"
+    $0
+fi
+endsnippet

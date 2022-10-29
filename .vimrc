@@ -26,9 +26,12 @@ let mapleader = "-"             " set leaderkey to -
 " get vim-go
 " let g:go_fmt_command = "goimports"
 "
+
 colorscheme monokai
+let g:UltiSnipsEditSplit="vertical"
 " paste
 nnoremap <leader>p :set paste<enter>
+nnoremap <leader>P :set nopaste<enter>
 " vim-go
 nnoremap <leader>r :GoRun<enter>
 nnoremap <leader>b :GoBuild<enter>
@@ -39,6 +42,11 @@ nnoremap <leader>g :Gblame<enter>
 nnoremap <leader>m :MinimapToggle<enter>
 " Nerd tree
 nnoremap <leader>n :NERDTreeToggle<enter>
+" UltiSnip
+nnoremap <leader>u :UltiSnipsExpandTrigger
+nnoremap <leader>u :UltiSnipsJumpForwardTrigger
+
+
 
 " Show tabs and trailing whitespace visually
 if (&termencoding == "utf-8") || has("gui_running")

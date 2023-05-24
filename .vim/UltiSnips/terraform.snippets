@@ -12,3 +12,22 @@ output "$1" {
   value       = $1
 }
 endsnippet
+
+snippet mem "member def" b
+resource "google_project_iam_member" "$1" {
+  role     = "roles/$1"
+  member   = "$1"
+  project  = var.project_id
+}
+endsnippet
+
+
+
+snippet secret "secret def" b
+resource "google_secret_manager_secret_iam_member" "$1" {
+  secret_id = "projects/${local.project_number}/secrets/$1"
+  role    = "roles/secretmanager.secretAccessor"
+  member  = "serviceAccount:${module.$2.runner_email}"
+}
+endsnippet
+

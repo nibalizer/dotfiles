@@ -31,3 +31,10 @@ resource "google_secret_manager_secret_iam_member" "$1" {
 }
 endsnippet
 
+
+snippet mod "module def" b
+module "$1" {
+  source                  = "../../../modules/$1"
+  $2
+}
+endsnippet

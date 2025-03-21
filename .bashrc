@@ -149,7 +149,7 @@ alias feh='feh -F'
 alias ff='firefox --new-instance --profilemanager &'
 alias fgrep='fgrep --color=auto'
 alias fucking='sudo'
-alias gitbranchfix='git fetch origin; git branch --set-upstream-to=origin/master master'
+alias gitbranchfix='git fetch origin; git branch --set-upstream-to=origin/main main'
 alias grep='grep --color=auto'
 alias jsoncheck='jq "." < '
 alias k=kubectl
@@ -195,7 +195,7 @@ alias gob='git checkout -b'
 alias gp='git pull'
 alias gpom='git push origin main'
 alias gr='git remote'
-alias grom='git reset --hard origin/master'
+alias grom='git reset --hard origin/main'
 alias gs='git status'
 
 
